@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Friend Universe 🌌</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at bottom, #0d1b2a 0%, #000814 100%);
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .planet {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00b4d8 0%, #0077b6 70%, #023e8a 100%);
+      box-shadow: 0 0 60px 30px rgba(0,183,255,0.4);
+      text-align: center;
+      line-height: 180px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #caf0f8;
+      z-index: 2;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 60px 20px rgba(0,183,255,0.4); }
+      50% { box-shadow: 0 0 90px 40px rgba(0,183,255,0.7); }
+    }
+
+    .star {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: radial-gradient(circle, #ffffff 0%, #bde0fe 70%, transparent 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 15px 5px rgba(255,255,255,0.8);
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .star:hover {
+      transform: scale(1.8);
+      box-shadow: 0 0 40px 15px #ffffff;
+    }
+
+    .message-box {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 18px;
+      color: #fff;
+      display: none;
+      z-index: 3;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    .photo {
+      display: block;
+      margin: 10px auto 0;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      background: #00b4d8;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background: #0077b6;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="galaxy"></canvas>
+  <div class="planet">Poland Orbit 🚀</div>
+  <div class="message-box" id="messageBox">Click a star to reveal a memory 💫</div>
+
+  <script>
+    const canvas = document.getElementById('galaxy');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let stars = Array.from({ length: 300 }).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.3 + 0.2,
+      alpha: Math.random(),
+      speed: Math.random() * 0.05 + 0.02
+    }));
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let s of stars) {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+        ctx.fill();
+        s.alpha += (Math.random() - 0.5) * 0.02;
+        if (s.alpha < 0) s.alpha = 0;
+        if (s.alpha > 1) s.alpha = 1;
+      }
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+
+    const friendStars = [
+      { name: 'Anna', msg: 'Always proud of you! 🌟', x: '20%', y: '30%', img: 'https://i.pravatar.cc/80?img=5' },
+      { name: 'Boldoo', msg: 'Study hard but live harder 😎', x: '80%', y: '25%', img: 'https://i.pravatar.cc/80?img=3' },
+      { name: 'Naraa', msg: 'Your friendship means the world 💖', x: '70%', y: '70%', img: 'https://i.pravatar.cc/80?img=4' },
+      { name: 'Erka', msg: 'See you in Europe someday! 🌍', x: '30%', y: '75%', img: 'https://i.pravatar.cc/80?img=6' },
+      { name: 'You', msg: 'We’ll miss you every single day 💫', x: '50%', y: '10%', img: 'https://i.pravatar.cc/80?img=7' }
+    ];
+
+    const messageBox = document.getElementById('messageBox');
+
+    friendStars.forEach(friend => {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = friend.x;
+      star.style.top = friend.y;
+      document.body.appendChild(star);
+
+      let angle = Math.random() * 360;
+      setInterval(() => {
+        angle += 0.02;
+        const radius = 10;
+        star.style.transform = `translate(${Math.sin(angle) * radius}px, ${Math.cos(angle) * radius}px)`;
+      }, 50);
+
+      star.addEventListener('click', () => {
+        messageBox.innerHTML = `<strong>${friend.name}:</strong> ${friend.msg}<br><img src='${friend.img}' class='photo'><br><button class='btn' onclick='alert(\"Send your love to ${friend.name}!\")'>Send Love ❤️</button>`;
+        messageBox.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
