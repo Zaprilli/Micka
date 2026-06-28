@@ -191,3 +191,4 @@ closeAlbumBtn.addEventListener('click', () => {
 
 // Вэб нээгдэнгүүт зургуудыг бэлдэж слайдерт хуваарилна
 initializeSlider();
+// test 123 fix bug by adding comment
