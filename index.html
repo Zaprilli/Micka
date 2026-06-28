@@ -1,77 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📸 Our Story in Virtual</title>
+  <title>📸 Our Story in Virutal! 🇯🇵🌸</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <div class="sakura-container" id="sakuraBg"></div>
+
+  <div class="time-zones">
+    <div class="zone">🇲🇳 UB: <span id="ubTime">00:00</span></div>
+    <div class="zone">🇯🇵 Tokyo: <span id="tokyoTime">00:00</span></div>
+  </div>
+
   <header>
-    <h1>📸 Our Story in Virtual</h1>
-    <p>Even miles apart — our memories stay close 💌</p>
+    <div class="passport-stamp">PASSPORT CONTROL: APPROVED ✈️</div>
+    <h1>📸 Our Story in Photos</h1>
+    <p class="sub-hero">Even miles apart — our memories stay close 💌 <br><strong>Road to Japan! 🇯🇵🌸</strong></p>
   </header>
 
-  <h2 class="section-title">✨ Fixed Memories</h2>
+  <h2 class="section-title">✨ Бидний Нандин Дурсамжууд</h2>
   <div class="gallery">
     <div class="photo">
       <div class="photo-wrapper">
-        <img src="https://i.imgur.com/hqO639b.jpg" alt="Highschool">
-        <div class="hover-text">“We studied 10%, laughed 90% 😆”</div>
+        <img src="https://i.imgur.com/hqO639b.jpg"  alt="Highschool">        <div class="hover-text">“Хамтдаа өнгүүлсэн хичээлийн сүүлийн өдөрүүд 😆”</div>
       </div>
-      <p class="caption">Highschool 📚<br><span class="date-text">2024.05.11</span></p>
+      <p class="caption">Highschool Days 📚<br><span class="date-text">2024.05.11</span></p>
     </div>
 
     <div class="photo">
       <div class="photo-wrapper">
-        <img src="https://i.imgur.com/oYFOMiZ.jpg" alt="Picnic">
-        <div class="hover-text">“After This Picture The Real Adventure began! 😂”</div>
+        <img src="https://i.imgur.com/Br38S7z.jpg" alt="Picnic">
       </div>
-      <p class="caption">Picnic 🍱<br><span class="date-text">2024.12.29</span></p>
+      <p class="caption">The Best Picnic 🍱<br><span class="date-text">2024.06.15</span></p>
     </div>
 
     <div class="photo">
       <div class="photo-wrapper">
-        <img src="https://imgur.com/ZDWM7yE.jpg" alt="Last Day">
-        <div class="hover-text">“We didn't say goodbye, just see you soon 🥺💙”</div>
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=500">
+        <div class="hover-text">“Удахгүй уулзана аa! 🥺💙”</div>
       </div>
-      <p class="caption">Last Day Before You Left 💙<br><span class="date-text">2025.10.09</span></p>
+      <p class="caption">See You Soon Girlie! 🌸<br><span class="date-text"></p>
     </div>
   </div>
 
+  <section class="nihongo-section">
+    <h2 class="section-title">🎌 Survival Japanese (Япон хэлний бэлтгэл)</h2>
+    <div class="phrase-card" id="phraseCard">
+      <p class="japanese-text" id="jpText">こんにちは (Konnichiwa)</p>
+      <p class="mongolian-text" id="mnText">Сайн уу / Өдрийн мэнд</p>
+      <button class="next-phrase-btn" id="nextPhraseBtn">Өөр үг сурах 🔄</button>
+    </div>
+  </section>
+
   <section>
-    <h2 class="section-title">🕊️ Next Time We Meet...</h2>
+    <h2 class="section-title">🍣 Токиод очоод эднийг хийгээрэй!</h2>
     <ul class="bucket-list">
-      <li>🍻 Late night Talk</li>
-      <li>🎤 Karaoke session</li>
-      <li>💞 More New Memories</li>
+      <li>🗼 Shibuya - гийн гарцан дээр чангаар орилох</li>
+      <li>🍜 Шөнө дунд Ичиран Рамен идэх</li>
+      <li>🎤 Японы Караокед Монгол дуу дуулж гайхшруулах</li>
     </ul>
   </section>
 
   <section class="album-section">
-    <h2 class="section-title">🌌 Your Dynamic Album</h2>
-    <p class="sub-notice">              Select multiple pictures to fill the memory lanes below!</p>
+    <h2 class="section-title">🌌 Our Dynamic Album</h2>
+    <p class="sub-notice" style="text-align:center; color:#666; margin-top:-10px;">Энд баахан зургуудаа зэрэг сонгоод оруулаарай!</p>
     
     <div class="upload-container">
       <div class="upload-btn-wrapper">
         <button class="btn-upload">➕ Choose Photos</button>
         <input type="file" id="photoUpload" accept="image/*" multiple>
       </div>
-      <p class="gpa-notice">Refresh хийхэд устдаг тул Messenger-ээрээ бас хуваалцаарай! (2024-2028 GPA 4.0 🎓)</p>
+      <br><br>
+      <button class="album-view-btn" id="openAlbumBtn">📖 Open Premium Album Frame 🌸</button>
+      <p class="gpa-notice">💡Refresh хийхэд устдагийг анхаараарай! (Messenger GPA 4.0 🎓- той хуваалцаарай)</p>
     </div>
 
     <div id="newPhotos" class="gallery"></div>
   </section>
 
+  <div id="albumModal" class="modal">
+    <span class="close-modal" id="closeAlbumBtn">&times;</span>
+    <div class="modal-content-wrapper">
+      <h2 class="modal-title">🌸 Our Special Memory Lane 🌸</h2>
+      <div class="slider-outer-container">
+        <button class="nav-btn prev-btn" id="prevBtn">❮</button>
+        <div class="slider-wrapper">
+          <div id="modalGallery" class="slider-track">
+            <div class="no-photos-msg">Зураг оруулаагүй байна. Гаднаас "Choose Baahan Photos" товчоор зургаа уншуулаарай! 📲</div>
+          </div>
+        </div>
+        <button class="nav-btn next-btn" id="nextBtn">❯</button>
+      </div>
+      <div class="slider-counter" id="sliderCounter">0 / 0</div>
+    </div>
+  </div>
+
   <div class="fun-buttons">
-    <button class="fun-btn" id="missBtn">😭 Press if you miss us</button>
-    <button class="fun-btn" id="complimentBtn">💖 Need motivation?</button>
-    <button class="fun-btn" id="moodBtn">🎨 Change the mood</button>
+    <button class="fun-btn" id="missBtn">😭 “Биднийгээ санаад байвал энд дар</button>
+    <button class="fun-btn" id="complimentBtn">💖 Хичээлээсээ залхвал дар</button>
+    <button class="fun-btn" id="moodBtn">🎨 Сэтгэл санаагаа дээшлүүл</button>
   </div>
 
   <footer>
-    Made with love by your besties 💙 — “Bidniigee Buu Martaatai!”
+    Made with 💖 by your besties — “Биднийгээ битгий мартаарай! がんばって! 🌸”
   </footer>
 
   <script src="script.js"></script>

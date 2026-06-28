@@ -1,248 +1,282 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
 
 body {
-  font-family: 'Nunito', sans-serif;
-  background: #fffafc;
+  font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+  background: #fff8fa;
   color: #333;
   margin: 0;
   padding: 0;
-  transition: background 1s ease;
+  transition: background 1s ease, color 1s ease;
+  overflow-x: hidden;
+}
+
+/* Сакура намирч унах талбар */
+.sakura-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.sakura-petal {
+  position: absolute;
+  background: #ffb3c6;
+  border-radius: 150% 0 150% 150%;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(105vh) translateX(100px) rotate(720deg); opacity: 0; }
+}
+
+/* Цаг */
+.time-zones {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 1500;
+}
+
+.zone {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border: 1px solid #ffccd5;
 }
 
 header {
   text-align: center;
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, #ffd5ec 0%, #c3f0ff 100%);
-  border-bottom: 3px dashed #ffe6f2;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-}
-
-header h1 {
-  font-size: 2.6rem;
-  margin: 0;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-header p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 10px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 1.8rem;
-  color: #444;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #ffdeed 0%, #ffedf2 50%, #e3f2fd 100%);
+  border-bottom: 3px dashed #ffb3d1;
   position: relative;
 }
 
-.sub-notice {
-  text-align: center;
-  color: #666;
-  margin-top: -10px;
+.passport-stamp {
+  display: inline-block;
+  border: 3px solid #d14d72;
+  color: #d14d72;
+  padding: 4px 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  transform: rotate(-5deg);
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
-/* Polaroid Gallery Style */
+header h1 { font-size: 2.8rem; margin: 0; font-weight: 700; color: #4a1525; }
+.sub-hero { font-size: 1.2rem; color: #613b47; margin-top: 10px; line-height: 1.6; }
+
+.section-title { text-align: center; font-size: 1.8rem; color: #4a1525; margin-top: 4rem; margin-bottom: 1.5rem; }
+
+/* Галерей хуудас */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 3rem;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   justify-items: center;
 }
 
 .photo {
-  position: relative;
   background: white;
-  padding: 12px 12px 25px 12px;
+  padding: 15px 15px 30px 15px;
   border-radius: 4px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid #f0f0f0;
-  max-width: 260px;
+  box-shadow: 0 10px 25px rgba(209, 77, 114, 0.08);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #ffe3e8;
+  max-width: 250px;
 }
 
-/* Random rotations for authentic polaroid look */
-.gallery .photo:nth-child(odd) { transform: rotate(-3deg); }
+.gallery .photo:nth-child(odd) { transform: rotate(-2deg); }
 .gallery .photo:nth-child(even) { transform: rotate(2deg); }
-.gallery .photo:nth-child(3n) { transform: rotate(-1.5deg); }
+.photo:hover { transform: scale(1.06) rotate(0deg) !important; box-shadow: 0 15px 35px rgba(209, 77, 114, 0.2); }
 
-.photo:hover {
-  transform: scale(1.08) rotate(0deg) !important;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-  z-index: 10;
-}
+.photo-wrapper { position: relative; overflow: hidden; border-radius: 2px; }
+.photo img { width: 100%; height: 230px; object-fit: cover; display: block; }
 
-.photo-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 2px;
-  background: #eee;
-}
-
-.photo img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.caption {
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-top: 15px;
-  color: #444;
-}
-
-.date-text {
-  color: #999;
-  font-size: 0.8rem;
-}
+.caption { text-align: center; font-size: 1rem; font-weight: 600; margin-top: 15px; color: #4a1525; }
+.date-text { color: #b08d96; font-size: 0.85rem; }
 
 .hover-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  padding: 15px;
-  box-sizing: border-box;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(74, 21, 37, 0.85); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s ease; padding: 15px;
+  text-align: center; font-size: 1rem; font-weight: 600;
+}
+.photo:hover .hover-text { opacity: 1; }
+
+/* Япон хэлний хэсэг */
+.nihongo-section {
+  background: #fff0f3;
+  padding: 3rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px dashed #ffccd5;
+  border-bottom: 1px dashed #ffccd5;
   text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
 }
 
-.photo:hover .hover-text {
-  opacity: 1;
-}
-
-/* Bucket List */
-ul.bucket-list {
-  list-style: none;
-  padding: 0;
-  max-width: 500px;
-  margin: 1.5rem auto;
-}
-
-ul.bucket-list li {
-  background: #f9f3ff;
-  padding: 12px 20px;
-  border-radius: 12px;
-  margin: 10px 0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.02);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  border-left: 4px solid #d6b4fc;
-}
-
-/* Album Uploader Section */
-.upload-container {
-  background: #fdf3f9;
-  border: 2px dashed #ffd1eb;
-  border-radius: 20px;
-  padding: 2.5rem 1.5rem;
-  max-width: 600px;
-  margin: 2rem auto;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-
-.upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.btn-upload {
-  border: 2px solid #ffb3e1;
-  color: #db5ca1;
-  background-color: white;
-  padding: 12px 25px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.upload-btn-wrapper:hover .btn-upload {
-  background: #ffb3e1;
-  color: white;
-}
-
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.gpa-notice {
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 12px;
-  font-style: italic;
-}
-
-.album-section {
-  background: rgba(255, 255, 255, 0.5);
-  padding: 2rem 0;
-  border-top: 1px solid #f0e2ea;
-}
-
-/* Action Buttons */
-.fun-buttons {
-  margin: 3rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.fun-btn {
-  background: #ffd9f9;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  color: #551b47;
-}
-
-.fun-btn:hover {
-  background: #ffeefc;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-footer {
-  text-align: center;
+.phrase-card {
+  background: white;
+  max-width: 400px;
+  margin: 0 auto;
   padding: 2rem;
-  background: #fff1f9;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #777;
-  border-top: 1px solid #ffe6f2;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(209, 77, 114, 0.05);
+  border: 2px solid #ffccd5;
 }
+
+.japanese-text { font-size: 1.8rem; font-weight: bold; color: #d14d72; margin: 0; }
+.mongolian-text { font-size: 1.2rem; color: #666; margin: 15px 0 25px 0; }
+
+.next-phrase-btn {
+  background: #ffccd5; color: #d14d72; border: none;
+  padding: 10px 20px; border-radius: 50px; font-weight: bold;
+  cursor: pointer; transition: 0.2s;
+}
+.next-phrase-btn:hover { background: #ffb3c6; color: white; }
+
+/* Bucket list */
+ul.bucket-list { list-style: none; padding: 0; max-width: 550px; margin: 1.5rem auto; }
+ul.bucket-list li {
+  background: white; padding: 15px 20px; border-radius: 12px;
+  margin: 12px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  font-weight: 600; border-left: 5px solid #ff9ebb; color: #4a1525;
+}
+
+/* Товчлуур хавтас */
+.fun-buttons { margin: 4rem 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+.fun-btn {
+  background: #ffe3e8; border: none; padding: 14px 28px;
+  border-radius: 50px; font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: 0.3s; color: #611729;
+  box-shadow: 0 4px 15px rgba(209, 77, 114, 0.1);
+}
+.fun-btn:hover { background: #ff9ebb; color: white; transform: translateY(-3px); }
+
+/* Шөнийн горим (Неон Токио стиль) */
+body.dark-mode {
+  background: #0f111a;
+  color: #e3e6f3;
+}
+body.dark-mode header { background: linear-gradient(135deg, #1f1424 0%, #0d1117 100%); border-bottom: 3px dashed #ff0055; }
+body.dark-mode header h1 { color: #ff0055; text-shadow: 0 0 10px #ff0055; }
+body.dark-mode .sub-hero { color: #cbb2bc; }
+body.dark-mode .section-title { color: #00f0ff; text-shadow: 0 0 8px #00f0ff; }
+body.dark-mode .photo { background: #161925; border-color: #272c42; }
+body.dark-mode .caption { color: #fff; }
+body.dark-mode .nihongo-section { background: #141722; border-color: #ff0055; }
+body.dark-mode .phrase-card { background: #1c2030; border-color: #00f0ff; }
+body.dark-mode .japanese-text { color: #00f0ff; }
+body.dark-mode .mongolian-text { color: #bbb; }
+body.dark-mode ul.bucket-list li { background: #1c2030; color: #fff; border-left-color: #ff0055; }
+body.dark-mode .fun-btn { background: #22182b; color: #ff0055; border: 1px solid #ff0055; }
+body.dark-mode .fun-btn:hover { background: #ff0055; color: white; }
+
+footer { text-align: center; padding: 2.5rem; background: #fff0f3; font-size: 0.95rem; font-weight: 600; color: #7a545e; border-top: 1px solid #ffccd5; }
+body.dark-mode footer { background: #0d1117; color: #888; border-top: 1px solid #222; }
+
+/* ====== SLIDER & UPLOAD DESIGN ====== */
+.album-section { background: rgba(255, 255, 255, 0.4); padding: 3rem 0; border-top: 1px solid #ffe3e8; border-bottom: 1px solid #ffe3e8; }
+.upload-container { background: #fff1f4; border: 2px dashed #ffccd5; border-radius: 20px; padding: 2.5rem 1.5rem; max-width: 600px; margin: 2rem auto; text-align: center; }
+.upload-btn-wrapper { position: relative; overflow: hidden; display: inline-block; }
+.btn-upload { border: 2px solid #ff9ebb; color: #d14d72; background-color: white; padding: 12px 25px; border-radius: 50px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.upload-btn-wrapper:hover .btn-upload { background: #ff9ebb; color: white; }
+.upload-btn-wrapper input[type=file] { font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; }
+.gpa-notice { font-size: 0.85rem; color: #888; margin-top: 12px; }
+.album-view-btn { background: linear-gradient(135deg, #ff9ebb 0%, #ff7597 100%); color: white; border: none; padding: 14px 35px; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(209, 77, 114, 0.3); transition: 0.3s; }
+.album-view-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(209, 77, 114, 0.5); }
+
+/* MODAL SLIDER FRAME */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255, 242, 245, 0.98); backdrop-filter: blur(10px); }
+.modal-content-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; }
+.close-modal { position: absolute; right: 30px; top: 20px; color: #999; font-size: 45px; font-weight: bold; cursor: pointer; z-index: 2100; }
+.close-modal:hover { color: #d14d72; }
+.modal-title { text-align: center; font-size: 2rem; color: #d14d72; margin-bottom: 0; }
+.slider-outer-container { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 700px; margin: 1.5rem 0; position: relative; }
+.slider-wrapper { width: 360px; height: 460px; overflow: hidden; border-radius: 8px; position: relative; }
+.slider-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); height: 100%; }
+.slider-track .photo { flex: 0 0 336px; width: 336px; height: 420px; margin: 10px 12px; background: white; padding: 15px 15px 35px 15px; box-shadow: 0 15px 35px rgba(209, 77, 114, 0.15); border: 1px solid #ffe3e8; border-radius: 4px; transform: none !important; }
+.slider-track .photo .photo-wrapper img { width: 100%; height: 320px; object-fit: cover; }
+.slider-track .photo .caption { font-size: 1.05rem; margin-top: 12px; }
+.nav-btn { background: white; border: 2px solid #ffccd5; color: #d14d72; font-size: 24px; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2050; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.nav-btn:hover { background: #d14d72; color: white; border-color: #d14d72; }
+.prev-btn { left: -80px; }
+.next-btn { right: -80px; }
+.slider-counter { font-size: 1.1rem; font-weight: bold; color: #d14d72; background: white; padding: 6px 20px; border-radius: 20px; border: 1px solid #ffccd5; }
+.no-photos-msg { width: 100%; text-align: center; padding-top: 180px; color: #888; font-weight: 600; padding-left: 20px; padding-right: 20px; box-sizing: border-box; }
+
+@media (max-width: 800px) { .prev-btn { left: 10px; } .next-btn { right: 10px; } .slider-wrapper { width: 290px; height: 400px; } .slider-track .photo { flex: 0 0 266px; width: 266px; height: 370px; } .slider-track .photo .photo-wrapper img { height: 270px; } }
+
+/* DARK MODE FOR SLIDER */
+body.dark-mode .album-section { background: rgba(20, 23, 34, 0.6); border-color: #222; }
+body.dark-mode .upload-container { background: #161925; border-color: #ff0055; }
+body.dark-mode .btn-upload { background: #161925; color: #ff0055; border-color: #ff0055; }
+body.dark-mode .btn-upload:hover { background: #ff0055; color: white; }
+body.dark-mode .modal { background-color: rgba(15, 17, 26, 0.98); }
+body.dark-mode .slider-track .photo { background: #161925; border-color: #00f0ff; box-shadow: 0 15px 35px rgba(0, 240, 255, 0.1); }
+body.dark-mode .nav-btn { background: #161925; border-color: #ff0055; color: #ff0055; }
+body.dark-mode .nav-btn:hover { background: #ff0055; color: white; }
+body.dark-mode .slider-counter { background: #161925; color: #00f0ff; border-color: #00f0ff; }
+
+
+/* ====== MODAL SLIDER FRAME (ТОМРУУЛСАН ХҮСНЭГТ) ====== */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255, 242, 245, 0.98); backdrop-filter: blur(15px); }
+.modal-content-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; }
+.close-modal { position: absolute; right: 40px; top: 30px; color: #999; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 2100; transition: 0.2s; }
+.close-modal:hover { color: #d14d72; transform: scale(1.1); }
+.modal-title { text-align: center; font-size: 2.5rem; color: #4a1525; margin-bottom: 1rem; font-weight: 700; text-shadow: 0 2px 10px rgba(209, 77, 114, 0.1); }
+
+.slider-outer-container { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 900px; margin: 1rem 0; position: relative; }
+
+/* Слайдерын үндсэн талбарыг 540px болгож томрууллаа */
+.slider-wrapper { width: 540px; height: 640px; overflow: hidden; position: relative; padding: 10px 0; }
+.slider-track { display: flex; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); height: 100%; }
+
+/* Поларойд жаазыг том, чанартай болгов */
+.slider-track .photo { flex: 0 0 500px; width: 500px; height: 600px; margin: 10px 20px; background: white; padding: 20px 20px 40px 20px; box-shadow: 0 20px 45px rgba(209, 77, 114, 0.18); border: 1px solid #ffe3e8; border-radius: 8px; transform: none !important; box-sizing: border-box; display: flex; flex-direction: column; }
+.slider-track .photo .photo-wrapper { width: 100%; height: 460px; overflow: hidden; border-radius: 4px; position: relative; }
+.slider-track .photo .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slider-track .photo .caption { font-size: 1.2rem; font-weight: bold; margin-top: 18px; color: #4a1525; line-height: 1.4; }
+
+/* Навигацийн том сумууд */
+.nav-btn { background: white; border: 2px solid #ffccd5; color: #d14d72; font-size: 28px; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2050; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 6px 15px rgba(209, 77, 114, 0.15); display: flex; align-items: center; justify-content: center; }
+.nav-btn:hover { background: #d14d72; color: white; border-color: #d14d72; transform: translateY(-50%) scale(1.1); box-shadow: 0 8px 25px rgba(209, 77, 114, 0.3); }
+.prev-btn { left: -90px; }
+.next-btn { right: -90px; }
+
+.slider-counter { font-size: 1.2rem; font-weight: bold; color: #d14d72; background: white; padding: 8px 25px; border-radius: 30px; border: 1px solid #ffccd5; box-shadow: 0 4px 10px rgba(0,0,0,0.02); margin-top: 10px; }
+
+/* Утасны дэлгэцэнд тааруулах */
+@media (max-width: 800px) { 
+  .prev-btn { left: 15px; } 
+  .next-btn { right: 15px; } 
+  .slider-wrapper { width: 320px; height: 440px; } 
+  .slider-track .photo { flex: 0 0 290px; width: 290px; height: 400px; margin: 10px 15px; padding: 12px 12px 25px 12px; } 
+  .slider-track .photo .photo-wrapper { height: 290px; } 
+  .nav-btn { width: 45px; height: 45px; font-size: 18px; }
+}
+
+/* ШӨНИЙН ГОРИМД ЗОРИУЛСАН ТОМ СЛАЙДЕР */
+body.dark-mode .modal { background-color: rgba(15, 17, 26, 0.98); }
+body.dark-mode .slider-track .photo { background: #161925; border-color: #00f0ff; box-shadow: 0 20px 45px rgba(0, 240, 255, 0.15); }
+body.dark-mode .nav-btn { background: #161925; border-color: #ff0055; color: #ff0055; box-shadow: 0 6px 15px rgba(255, 0, 85, 0.2); }
+body.dark-mode .nav-btn:hover { background: #ff0055; color: white; }
+body.dark-mode .slider-counter { background: #161925; color: #00f0ff; border-color: #00f0ff; }
+body.dark-mode .modal-title { color: #00f0ff; text-shadow: 0 0 12px #00f0ff; }
