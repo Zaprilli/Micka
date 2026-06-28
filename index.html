@@ -15,6 +15,10 @@
     <div class="zone">🇯🇵 Tokyo: <span id="tokyoTime">00:00</span></div>
   </div>
 
+  <button id="musicToggleBtn" class="floating-music-btn" title="Play Background Music">🎵</button>
+
+<audio id="bgMusic" src="https://assets.mixkit.co/music/preview/mixkit-sakura-348.mp3" loop></audio>
+
   <header>
     <div class="passport-stamp">PASSPORT CONTROL: APPROVED ✈️</div>
     <h1>📸 Our Story in Photos</h1>
@@ -74,34 +78,42 @@
         <input type="file" id="photoUpload" accept="image/*" multiple>
       </div>
       <br><br>
-      <button class="album-view-btn" id="openAlbumBtn">📖 Open Premium Album Frame 🌸</button>
       <p class="gpa-notice">💡Refresh хийхэд устдагийг анхаараарай! (Messenger GPA 4.0 🎓- той хуваалцаарай)</p>
     </div>
 
     <div id="newPhotos" class="gallery"></div>
   </section>
 
-  <div id="albumModal" class="modal">
-    <span class="close-modal" id="closeAlbumBtn">&times;</span>
+  <div class="premium-btn-container">
+    <button id="openAlbumBtn" class="premium-frame-btn">
+      📖 Open Premium Album Frame 🌸
+    </button>
+  </div>
+
+<div id="albumModal" class="modal">
     <div class="modal-content-wrapper">
+      <span id="closeAlbumBtn" class="close-modal">&times;</span>
       <h2 class="modal-title">🌸 Our Special Memory Lane 🌸</h2>
+      
       <div class="slider-outer-container">
-        <button class="nav-btn prev-btn" id="prevBtn">❮</button>
+        <button id="prevBtn" class="nav-btn prev-btn">&lt;</button>
+        
         <div class="slider-wrapper">
           <div id="modalGallery" class="slider-track">
-            <div class="no-photos-msg">Зураг оруулаагүй байна. Гаднаас "Choose Baahan Photos" товчоор зургаа уншуулаарай! 📲</div>
-          </div>
+            </div>
         </div>
-        <button class="nav-btn next-btn" id="nextBtn">❯</button>
+        
+        <button id="nextBtn" class="nav-btn next-btn">&gt;</button>
       </div>
-      <div class="slider-counter" id="sliderCounter">0 / 0</div>
+      
+      <div id="sliderCounter" class="slider-counter">0 / 0</div>
     </div>
   </div>
 
   <div class="fun-buttons">
     <button class="fun-btn" id="missBtn">😭 “Биднийгээ санаад байвал энд дар</button>
     <button class="fun-btn" id="complimentBtn">💖 Хичээлээсээ залхвал дар</button>
-    <button class="fun-btn" id="moodBtn">🎨 Сэтгэл санаагаа дээшлүүл</button>
+    <button class="fun-btn" id="moodBtn">🌙 Tokyo Night!</button>
   </div>
 
   <footer>

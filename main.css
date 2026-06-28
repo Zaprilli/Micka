@@ -77,10 +77,27 @@ header {
   letter-spacing: 1px;
 }
 
-header h1 { font-size: 2.8rem; margin: 0; font-weight: 700; color: #4a1525; }
-.sub-hero { font-size: 1.2rem; color: #613b47; margin-top: 10px; line-height: 1.6; }
+header h1 { 
+  font-size: 2.8rem; 
+  margin: 0; 
+  font-weight: 700; 
+  color: #4a1525; 
+}
 
-.section-title { text-align: center; font-size: 1.8rem; color: #4a1525; margin-top: 4rem; margin-bottom: 1.5rem; }
+.sub-hero { 
+  font-size: 1.2rem; 
+  color: #613b47; 
+  margin-top: 10px; 
+  line-height: 1.6; 
+}
+
+.section-title { 
+  text-align: center; 
+  font-size: 1.8rem;
+  color: #4a1525; 
+  margin-top: 4rem; 
+  margin-bottom: 1.5rem; 
+}
 
 /* Галерей хуудас */
 .gallery {
@@ -103,15 +120,42 @@ header h1 { font-size: 2.8rem; margin: 0; font-weight: 700; color: #4a1525; }
   max-width: 250px;
 }
 
-.gallery .photo:nth-child(odd) { transform: rotate(-2deg); }
-.gallery .photo:nth-child(even) { transform: rotate(2deg); }
-.photo:hover { transform: scale(1.06) rotate(0deg) !important; box-shadow: 0 15px 35px rgba(209, 77, 114, 0.2); }
+.gallery .photo:nth-child(odd) { 
+  transform: rotate(-2deg); 
+}
+.gallery .photo:nth-child(even) { 
+  transform: rotate(2deg); 
+}
+.photo:hover { 
+  transform: scale(1.06) rotate(0deg) !important; 
+  box-shadow: 0 15px 35px rgba(209, 77, 114, 0.2); 
+}
 
-.photo-wrapper { position: relative; overflow: hidden; border-radius: 2px; }
-.photo img { width: 100%; height: 230px; object-fit: cover; display: block; }
+.photo-wrapper { 
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 2px; 
+}
 
-.caption { text-align: center; font-size: 1rem; font-weight: 600; margin-top: 15px; color: #4a1525; }
-.date-text { color: #b08d96; font-size: 0.85rem; }
+.photo img { 
+  width: 100%; 
+  height: 230px; 
+  object-fit: cover; 
+  display: block; 
+}
+
+.caption { 
+  text-align: center; 
+  font-size: 1rem; 
+  font-weight: 600; 
+  margin-top: 15px; 
+  color: #4a1525; 
+}
+
+.date-text { 
+  color: #b08d96; 
+  font-size: 0.85rem; 
+}
 
 .hover-text {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -170,6 +214,13 @@ ul.bucket-list li {
 }
 .fun-btn:hover { background: #ff9ebb; color: white; transform: translateY(-3px); }
 
+
+
+
+
+
+
+
 /* Шөнийн горим (Неон Токио стиль) */
 body.dark-mode {
   background: #0f111a;
@@ -191,7 +242,6 @@ body.dark-mode .fun-btn:hover { background: #ff0055; color: white; }
 
 footer { text-align: center; padding: 2.5rem; background: #fff0f3; font-size: 0.95rem; font-weight: 600; color: #7a545e; border-top: 1px solid #ffccd5; }
 body.dark-mode footer { background: #0d1117; color: #888; border-top: 1px solid #222; }
-
 /* ====== SLIDER & UPLOAD DESIGN ====== */
 .album-section { background: rgba(255, 255, 255, 0.4); padding: 3rem 0; border-top: 1px solid #ffe3e8; border-bottom: 1px solid #ffe3e8; }
 .upload-container { background: #fff1f4; border: 2px dashed #ffccd5; border-radius: 20px; padding: 2.5rem 1.5rem; max-width: 600px; margin: 2rem auto; text-align: center; }
@@ -210,19 +260,202 @@ body.dark-mode footer { background: #0d1117; color: #888; border-top: 1px solid 
 .close-modal:hover { color: #d14d72; }
 .modal-title { text-align: center; font-size: 2rem; color: #d14d72; margin-bottom: 0; }
 .slider-outer-container { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 700px; margin: 1.5rem 0; position: relative; }
-.slider-wrapper { width: 360px; height: 460px; overflow: hidden; border-radius: 8px; position: relative; }
-.slider-track { display: flex; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); height: 100%; }
-.slider-track .photo { flex: 0 0 336px; width: 336px; height: 420px; margin: 10px 12px; background: white; padding: 15px 15px 35px 15px; box-shadow: 0 15px 35px rgba(209, 77, 114, 0.15); border: 1px solid #ffe3e8; border-radius: 4px; transform: none !important; }
-.slider-track .photo .photo-wrapper img { width: 100%; height: 320px; object-fit: cover; }
-.slider-track .photo .caption { font-size: 1.05rem; margin-top: 12px; }
-.nav-btn { background: white; border: 2px solid #ffccd5; color: #d14d72; font-size: 24px; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2050; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-.nav-btn:hover { background: #d14d72; color: white; border-color: #d14d72; }
-.prev-btn { left: -80px; }
-.next-btn { right: -80px; }
-.slider-counter { font-size: 1.1rem; font-weight: bold; color: #d14d72; background: white; padding: 6px 20px; border-radius: 20px; border: 1px solid #ffccd5; }
-.no-photos-msg { width: 100%; text-align: center; padding-top: 180px; color: #888; font-weight: 600; padding-left: 20px; padding-right: 20px; box-sizing: border-box; }
 
-@media (max-width: 800px) { .prev-btn { left: 10px; } .next-btn { right: 10px; } .slider-wrapper { width: 290px; height: 400px; } .slider-track .photo { flex: 0 0 266px; width: 266px; height: 370px; } .slider-track .photo .photo-wrapper img { height: 270px; } }
+
+
+
+/* ===================================================
+   1. TOKYO NIGHT MODE (ШӨНИЙН ГОРИМ)
+   =================================================== */
+body.dark-mode {
+  background-color: #0f0c1b;
+  color: #f0f0f5;
+  background-image: linear-gradient(180deg, #0f0c1b 0%, #1a162b 100%);
+}
+body.dark-mode .modal { background-color: rgba(15, 12, 27, 0.98); }
+body.dark-mode .modal-title { color: #ff758c; text-shadow: 0 0 10px rgba(255, 117, 140, 0.5); }
+body.dark-mode .slider-track .photo { background: #1f1a3a; border-color: #3d3566; box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+body.dark-mode .slider-track .photo .caption { color: #ffccd5; }
+body.dark-mode .control-btn { background: rgba(31, 26, 58, 0.9); border-color: #3d3566; color: #fff; }
+
+/* ===================================================
+   2. KYOTO AUTUMN MODE (ЯПОНЫ НАМАР)
+   =================================================== */
+body.autumn-mode {
+  background-color: #2b1612; /* Намрын гүн хүрэн */
+  color: #fceade;
+  background-image: linear-gradient(180deg, #2b1612 0%, #3d1e18 100%);
+}
+body.autumn-mode .modal { 
+  background-color: rgba(43, 22, 18, 0.99); 
+}
+body.autumn-mode .modal-title { 
+  color: #ff5722; /* Намрын тод улбар шар */
+  text-shadow: 0 0 8px rgba(255, 87, 34, 0.4);
+}
+/* Поларойд жаазыг дулаахан намрын өнгөтэй болгоно */
+body.autumn-mode .slider-track .photo { 
+  background: #fff8f2; 
+  border: 1px solid #e0a98c; 
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+body.autumn-mode .slider-track .photo .caption { 
+  color: #a04000; 
+}
+/* Товчлуур нь намрын навчны өнгөтэй болно */
+body.autumn-mode .control-btn { 
+  background: rgba(61, 30, 24, 0.9); 
+  border-color: #e0a98c; 
+  color: #ff8a65;
+}
+/* ===================================================
+   🔥 LUXURY MOMIJI RED MODE (ТӨГС УЛААН ГОРИМ)
+   =================================================== */
+body.autumn-mode {
+  background-color: #240005; /* Хэт бүүдгэр хүрнийг устгаж, тансаг гүн улаан болгов */
+  color: #fff0f2;
+  background-image: linear-gradient(180deg, #320107 0%, #170003 100%);
+}
+
+/* Энэ текстийг шөнө тод харагддаг болгов */
+body.autumn-mode h2, 
+body.autumn-mode .modal-title,
+body.autumn-mode h3 { 
+  color: #ff4d6d !important; /* Уусахааргүй тод неон улаан-ягаан */
+  text-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+}
+
+/* Модал цонхны арын улаан туяа */
+body.autumn-mode .modal { 
+  background-color: rgba(28, 0, 4, 0.98); 
+}
+
+/* Поларойд жаазнуудыг улаан фон дээр тасархай харагдуулах шийдэл */
+body.autumn-mode .slider-track .photo,
+body.autumn-mode .photo-card { /* Чиний үндсэн хуудасны поларойд жаазнууд */
+  background: #ffffff !important; /* Жаазыг ЦАГААН хэвээр нь үлдээвэл улаан фон дээр ХАМГИЙН гоё тодорч харагдана! */
+  border: 2px solid #ff4d6d !important;
+  box-shadow: 0 12px 35px rgba(255, 77, 109, 0.3) !important;
+}
+
+/* Цагаан жааз доторх текст улаан горимд */
+body.autumn-mode .slider-track .photo .caption,
+body.autumn-mode .photo-card .caption,
+body.autumn-mode .photo-card p { 
+  color: #240005 !important; /* Жааз нь цагаан тул бичиг нь бараан байна */
+}
+
+/* Баруун дээд булангийн товчлуур улаан горимд */
+body.autumn-mode .control-btn { 
+  background: #ffffff; 
+  border: 2px solid #ff4d6d; 
+  color: #ff4d6d;
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+body.autumn-mode .control-btn:hover {
+  background: #ff4d6d;
+  color: white;
+}
+
+/* ====== БҮРЭН ЗАССАН ХӨНДЛӨН СЛАЙДЕР ====== */
+.slider-outer-container { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 100%; 
+  max-width: 680px; /* Хөндлөн зурагт зориулж өргөнийг томруулсан */
+  position: relative; 
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.slider-wrapper { 
+  width: 100%; 
+  height: 500px; /* Хөндлөн зургуудад тохирсон өндөр */
+  overflow: hidden; /* Дараагийн зургуудыг хажуугаар цухуйхыг ТҮГЖИЖ НУУНА */
+  position: relative; 
+  border-radius: 12px;
+}
+
+.slider-track { 
+  display: flex !important; 
+  flex-direction: row !important;
+  width: 100% !important;
+  height: 100%; 
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); 
+  will-change: transform;
+}
+
+/* Жааз - Нэг хуудсанд заавал ГАНЦХАН зураг 100% өргөнтэй харагдана */
+.slider-track .photo { 
+  flex: 0 0 100% !important; 
+  width: 100% !important; 
+  max-width: 100% !important;
+  height: 100%; 
+  background: white; 
+  padding: 15px 15px 40px 15px; 
+  box-shadow: 0 12px 30px rgba(209, 77, 114, 0.12); 
+  border: 1px solid #ffe3e8; 
+  border-radius: 12px; 
+  box-sizing: border-box; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+/* Зургийн контейнер - Энд өргөн нь 100% байна */
+.slider-track .photo .photo-wrapper { 
+  width: 100% !important; 
+  flex-grow: 1; /* Үлдсэн бүх зайг дүүргэнэ */
+  overflow: hidden; 
+  border-radius: 6px; 
+  background-color: #fafafa;
+  position: relative;
+}
+
+.slider-track .photo .photo-wrapper img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; /* Зургийг ямар ч зүсэлтгүй бүтэн харуулна */
+  display: block; 
+}
+
+/* Гар утасны дэлгэцийн зохицуулалт (Mobile Responsive) */
+@media (max-width: 700px) {
+  .slider-outer-container { max-width: 90%; }
+  .slider-wrapper { height: 380px; } /* Утас дээр хэмжээг жижгэрүүлнэ */
+  .prev-btn { left: -15px; }
+  .next-btn { right: -15px; }
+  .nav-btn { width: 38px; height: 38px; font-size: 16px; }
+}
+
+/* Навигацийн сумуудыг responsive байрлалтай болгох */
+.nav-btn {
+  background: white;
+  border: 2px solid #ffccd5;
+  color: #d14d72;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2050;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.nav-btn:hover {
+  background: #d14d72;
+  color: white;
+  border-color: #d14d72;
+}
+.prev-btn { left: -25px; }
+.next-btn { right: -25px; }
 
 /* DARK MODE FOR SLIDER */
 body.dark-mode .album-section { background: rgba(20, 23, 34, 0.6); border-color: #222; }
@@ -236,43 +469,6 @@ body.dark-mode .nav-btn:hover { background: #ff0055; color: white; }
 body.dark-mode .slider-counter { background: #161925; color: #00f0ff; border-color: #00f0ff; }
 
 
-/* ====== MODAL SLIDER FRAME (ТОМРУУЛСАН ХҮСНЭГТ) ====== */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255, 242, 245, 0.98); backdrop-filter: blur(15px); }
-.modal-content-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; }
-.close-modal { position: absolute; right: 40px; top: 30px; color: #999; font-size: 50px; font-weight: bold; cursor: pointer; z-index: 2100; transition: 0.2s; }
-.close-modal:hover { color: #d14d72; transform: scale(1.1); }
-.modal-title { text-align: center; font-size: 2.5rem; color: #4a1525; margin-bottom: 1rem; font-weight: 700; text-shadow: 0 2px 10px rgba(209, 77, 114, 0.1); }
-
-.slider-outer-container { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 900px; margin: 1rem 0; position: relative; }
-
-/* Слайдерын үндсэн талбарыг 540px болгож томрууллаа */
-.slider-wrapper { width: 540px; height: 640px; overflow: hidden; position: relative; padding: 10px 0; }
-.slider-track { display: flex; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); height: 100%; }
-
-/* Поларойд жаазыг том, чанартай болгов */
-.slider-track .photo { flex: 0 0 500px; width: 500px; height: 600px; margin: 10px 20px; background: white; padding: 20px 20px 40px 20px; box-shadow: 0 20px 45px rgba(209, 77, 114, 0.18); border: 1px solid #ffe3e8; border-radius: 8px; transform: none !important; box-sizing: border-box; display: flex; flex-direction: column; }
-.slider-track .photo .photo-wrapper { width: 100%; height: 460px; overflow: hidden; border-radius: 4px; position: relative; }
-.slider-track .photo .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.slider-track .photo .caption { font-size: 1.2rem; font-weight: bold; margin-top: 18px; color: #4a1525; line-height: 1.4; }
-
-/* Навигацийн том сумууд */
-.nav-btn { background: white; border: 2px solid #ffccd5; color: #d14d72; font-size: 28px; width: 65px; height: 65px; border-radius: 50%; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2050; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 6px 15px rgba(209, 77, 114, 0.15); display: flex; align-items: center; justify-content: center; }
-.nav-btn:hover { background: #d14d72; color: white; border-color: #d14d72; transform: translateY(-50%) scale(1.1); box-shadow: 0 8px 25px rgba(209, 77, 114, 0.3); }
-.prev-btn { left: -90px; }
-.next-btn { right: -90px; }
-
-.slider-counter { font-size: 1.2rem; font-weight: bold; color: #d14d72; background: white; padding: 8px 25px; border-radius: 30px; border: 1px solid #ffccd5; box-shadow: 0 4px 10px rgba(0,0,0,0.02); margin-top: 10px; }
-
-/* Утасны дэлгэцэнд тааруулах */
-@media (max-width: 800px) { 
-  .prev-btn { left: 15px; } 
-  .next-btn { right: 15px; } 
-  .slider-wrapper { width: 320px; height: 440px; } 
-  .slider-track .photo { flex: 0 0 290px; width: 290px; height: 400px; margin: 10px 15px; padding: 12px 12px 25px 12px; } 
-  .slider-track .photo .photo-wrapper { height: 290px; } 
-  .nav-btn { width: 45px; height: 45px; font-size: 18px; }
-}
-
 /* ШӨНИЙН ГОРИМД ЗОРИУЛСАН ТОМ СЛАЙДЕР */
 body.dark-mode .modal { background-color: rgba(15, 17, 26, 0.98); }
 body.dark-mode .slider-track .photo { background: #161925; border-color: #00f0ff; box-shadow: 0 20px 45px rgba(0, 240, 255, 0.15); }
@@ -280,4 +476,184 @@ body.dark-mode .nav-btn { background: #161925; border-color: #ff0055; color: #ff
 body.dark-mode .nav-btn:hover { background: #ff0055; color: white; }
 body.dark-mode .slider-counter { background: #161925; color: #00f0ff; border-color: #00f0ff; }
 body.dark-mode .modal-title { color: #00f0ff; text-shadow: 0 0 12px #00f0ff; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== 1. ТОВЧИЙГ ХУУДАСНЫ ТӨВД БАЙРЛУУЛАХ ====== */
+.premium-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem auto 1.5rem auto; 
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ====== 2. PREMIUM BUTTON-ИЙ ҮНДСЭН ЗАГВАР (САКУРА ГОРИМ) ====== */
+.premium-frame-btn {
+  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+  color: white !important;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 16px 40px;
+  border: none !important; /* Хөтөчийн саарал хүрээг устгана */
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 117, 140, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 90%;
+  outline: none; /* Дарахад үүсдэг цэнхэр хүрээг устгана */
+}
+
+/* Хулганаа дээгүүр нь гүйлгэх үед (Hover) */
+.premium-frame-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(255, 117, 140, 0.5);
+  background: linear-gradient(135deg, #ff6280 0%, #ff6b9f 100%);
+}
+
+/* Товч дээр дарах үед (Active) */
+.premium-frame-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+}
+
+/* ====== 3. ӨӨР ГОРИМУУДТАЙ ЗОХИЦОХ ХЭСЭГ ====== */
+
+/* Шөнийн горимд (Tokyo Night) */
+body.dark-mode .premium-frame-btn {
+  background: linear-gradient(135deg, #ff4d6d 0%, #ff758c 100%);
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+}
+
+/* Улаан горимд (Momiji Luxury Red) */
+body.autumn-mode .premium-frame-btn {
+  background: #ff3344;
+  box-shadow: 0 8px 20px rgba(255, 51, 68, 0.5);
+  border: 1px solid #ffccd0 !important;
+}
+body.autumn-mode .premium-frame-btn:hover {
+  background: #e61f31;
+}
+
+/* ====== 4. ГАР УТАСНЫ ДЭЛГЭЦЭНД (Responsive) ====== */
+@media (max-width: 600px) {
+  .premium-frame-btn {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== 🎵 ХӨВӨГЧ ХӨГЖМИЙН ҮНДСЭН ЗАГВАР ====== */
+.floating-music-btn {
+  position: fixed !important; /* Дэлгэц дээр хадна */
+  bottom: 25px !important;
+  right: 25px !important;
+  background: #ffffff !important;
+  border: 2px solid #ff758c !important;
+  border-radius: 50% !important;
+  width: 54px !important;
+  height: 54px !important;
+  font-size: 1.3rem !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 6px 20px rgba(255, 117, 140, 0.3) !important;
+  
+  /* 🔥 ХАМГИЙН ЧУХАЛ ХЭСЭГ: Өөр ямар ч элемент урдуур нь орох боломжгүй болгоно */
+  z-index: 999999 !important; 
+  pointer-events: auto !important; /* Даралтыг заавал хүлээж авна */
+  
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none !important;
+}
+
+/* ДУУ ЯВЖ БАЙХАД ЛУГШИХ АНИМАЦИ */
+.floating-music-btn.playing {
+  animation: sakuraPulse 2s infinite !important;
+  background: #ffccd5 !important;
+  border-color: #ff4d6d !important;
+  transform: scale(1.05) !important;
+}
+
+@keyframes sakuraPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 117, 140, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 117, 140, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 117, 140, 0); }
+}
+
+/* 🌙 ТОКИО ШӨНӨ ГОРИМД */
+body.dark-mode .floating-music-btn {
+  background: rgba(31, 26, 58, 0.9) !important;
+  border-color: #ff4d6d !important;
+  box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4) !important;
+}
+body.dark-mode .floating-music-btn.playing {
+  animation: tokyoPulse 2s infinite !important;
+  background: #ff4d6d !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+@keyframes tokyoPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.8); }
+  70% { box-shadow: 0 0 0 18px rgba(255, 77, 109, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 77, 109, 0); }
+}
+
+/* 🍁 УЛААН НАВЧИС ГОРИМД */
+body.autumn-mode .floating-music-btn {
+  background: rgba(36, 0, 5, 0.8) !important;
+  border: 2px solid #ff3344 !important;
+  box-shadow: 0 0 15px rgba(255, 51, 68, 0.4) !important;
+}
+body.autumn-mode .floating-music-btn.playing {
+  animation: momijiPulse 1.5s infinite !important;
+  background: #ff3344 !important;
+  border-color: #ffccd0 !important;
+  color: #ffffff !important;
+}
+@keyframes momijiPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 51, 68, 0.9); }
+  70% { box-shadow: 0 0 0 20px rgba(255, 51, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 51, 68, 0); }
+}
+
+.floating-music-btn:hover {
+  transform: scale(1.1) !important;
+}
+
 

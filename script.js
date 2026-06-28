@@ -98,24 +98,26 @@ complimentBtn.addEventListener('click', () => {
 });
 
 
-// 🎨 5. СЭТГЭЛ САНАА ӨӨРЧЛӨХ (TOKYO NIGHT MODE)
-moodBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  if(document.body.classList.contains('dark-mode')) {
-    moodBtn.innerText = "🌸 Сакура өглөө рүү буцах";
-  } else {
-    moodBtn.innerText = "🎨 Сэтгэл санаагаа өөрчил";
-  }
-});
 
 // ====== 1. ЧИНИЙ IMGUR РҮҮ ОРУУЛСАН ЗУРГУУДЫН САН ======
 // Энд байгаа жишээ линкүүдийг өөрийн Imgur-ийн Direct Link-үүдээр солиорой!
 const myImgurPhotos = [
-  "https://i.imgur.com/ЯГ_ЭНД_ҮНДСЭН_ЗУРГИЙН_ЛИНК_1.jpg", 
-  "https://i.imgur.com/ЯГ_ЭНД_ҮНДСЭН_ЗУРГИЙН_ЛИНК_2.jpg",
-  "https://i.imgur.com/ЯГ_ЭНД_ҮНДСЭН_ЗУРГИЙН_ЛИНК_3.jpg",
-  "https://i.imgur.com/ЯГ_ЭНД_ҮНДСЭН_ЗУРГИЙН_ЛИНК_4.jpg",
-  "https://i.imgur.com/ЯГ_ЭНД_ҮНДСЭН_ЗУРГИЙН_ЛИНК_5.jpg"
+  "https://i.imgur.com/uSpt1V0.jpg",
+  "https://i.imgur.com/wvfBiGL.jpg",
+  "https://i.imgur.com/49PgSMy.jpg",
+  "https://i.imgur.com/V876GoP.jpg",
+  "https://i.imgur.com/Fa3JMiQ.jpg",
+  "https://i.imgur.com/9S25zWb.jpg",
+  "https://i.imgur.com/0qpGkDC.jpg",
+  "https://i.imgur.com/JbnAeDc.jpg",
+  "https://i.imgur.com/KY98kmw.jpg",
+  "https://i.imgur.com/NHmVwUl.jpg",
+  "https://i.imgur.com/r58NqCK.jpg",
+  "https://i.imgur.com/PWFaA4V.jpg",
+  "https://i.imgur.com/vUlVdXN.jpg",
+  "https://i.imgur.com/iZ37YYj.jpg",
+  "https://i.imgur.com/Qg1nIvR.jpg",
+  "https://i.imgur.com/FXEO60Z.jpg",
 ];
 
 // ====== 2. СЛАЙДЕРЫН ҮНДСЭН ЛОГИК (ГАРЫН АРГААР АЖИЛЛАХ) ======
@@ -130,9 +132,29 @@ const sliderCounter = document.getElementById('sliderCounter');
 let currentIndex = 0;
 let totalPhotos = myImgurPhotos.length;
 
+// Зургийн жаазны бодит өргөнийг динамикаар авна
 function getSlideWidth() {
-  return window.innerWidth <= 800 ? 290 : 360; 
+  const wrapper = document.querySelector('.slider-wrapper');
+  // clientWidth нь border болон padding-ийг хасаад яг бодит дотоод өргөнийг авдаг
+  return wrapper ? wrapper.clientWidth : 600; 
 }
+// Слайдер гүйлгэх үндсэн логик
+function updateSlider() {
+  if (!modalGallery) return;
+  
+  // Өргөнийг динамикаар үржүүлж хүчээр голлуулна
+  const slideWidth = getSlideWidth();
+  modalGallery.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+  
+  if (sliderCounter && totalPhotos > 0) {
+    sliderCounter.innerText = `${currentIndex + 1} / ${totalPhotos}`;
+  }
+}
+
+// Цонхны хэмжээ өөрчлөгдөхөд (жишээ нь утас хөндлөн болох эсвэл PC дээр хэмжээг нь өөрчлөхөд) слайдер эвдрэхгүй байх тохиргоо
+window.addEventListener('resize', () => {
+  updateSlider();
+});
 
 // Хуудас ачаалагдахад зургуудыг слайдер цонх руу салгаж, өөр өөр хуудас болгож оруулна
 function initializeSlider() {
@@ -144,16 +166,6 @@ function initializeSlider() {
     modalDiv.classList.add('photo');
     
     // Зураг болгонд ижил хугацаа эсвэл дурын огноо тавьж болно
-    const currentDateString = `📅 ${new Date().toLocaleDateString('mn-MN')} Memory #${index + 1}`;
-
-    modalDiv.innerHTML = `
-      <div class="photo-wrapper">
-        <img src="${imageUrl}" alt="Memory ${index + 1}">
-        <div class="hover-text">Together Forever 💙✨</div>
-      </div>
-      <p class="caption">Japan Memory 📍<br><span class="date-text">${currentDateString}</span></p>
-    `;
-    modalGallery.appendChild(modalDiv);
   });
   updateSlider();
 }
@@ -189,6 +201,111 @@ closeAlbumBtn.addEventListener('click', () => {
   document.body.style.overflow = 'auto';
 });
 
+
+// Зургуудыг слайдер руу оруулах функц
+function initializeSlider() {
+  if (!modalGallery) return;
+  
+  // Нийт зургийн тоог массиваас дахин баталгаажуулж авна
+  totalPhotos = myImgurPhotos.length; 
+  modalGallery.innerHTML = ''; 
+
+  myImgurPhotos.forEach((imageUrl, index) => {
+    const modalDiv = document.createElement('div');
+    modalDiv.classList.add('photo');
+    modalDiv.innerHTML = `
+      <div class="photo-wrapper">
+        <img src="${imageUrl}" alt="Memory ${index + 1}">
+      </div>
+    `;
+    modalGallery.appendChild(modalDiv);
+  });
+  
+  // Слайдер үүсэж дууссаны дараа counter-ийг хүчээр шинэчилнэ
+  updateSlider();
+}
+
+// Слайдер гүйлгэх болон тоолуур шинэчлэх функц
+function updateSlider() {
+  if (!modalGallery) return;
+  
+  const slideWidth = getSlideWidth();
+  modalGallery.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+  
+  // Тоолуурын элементийг энд дахин шинээр барьж авна (Алдаа гарахаас сэргийлнэ)
+  const currentCounter = document.getElementById('sliderCounter');
+  if (currentCounter && totalPhotos > 0) {
+    currentCounter.innerText = `${currentIndex + 1} / ${totalPhotos}`;
+  }
+}
+
+
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+// 🎨 5. СЭТГЭЛ САНАА ӨӨРЧЛӨХ (3 ГОРИМТОЙ СЛАЙД)
+moodBtn.addEventListener('click', () => {
+  const body = document.body;
+
+  // 1. Одоо Sakura (Default) байгаа бол -> Tokyo Night (Dark) руу шилжих
+  if (!body.classList.contains('dark-mode') && !body.classList.contains('autumn-mode')) {
+    body.classList.add('dark-mode');
+    moodBtn.innerText = "🍁 Kyoto Autumn"; // Шөнийн горимын бичиг
+  } 
+  
+  // 2. Одоо Tokyo Night байгаа бол -> Улаан горим (Momiji Red) руу шилжих
+  else if (body.classList.contains('dark-mode')) {
+    body.classList.remove('dark-mode');
+    body.classList.add('autumn-mode');
+    moodBtn.innerText = "🌸 Sakura руу буцах"; // Яг чиний хүссэн улаан горимын бичиг!
+  } 
+  
+  // 3. Одоо Улаан горим байгаа бол -> Буцаад Sakura (Default) руу шилжих
+  else if (body.classList.contains('autumn-mode')) {
+    body.classList.remove('autumn-mode');
+    moodBtn.innerText = "🌙 Tokyo Night!"; // Буцаад үндсэн бичиг
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+const musicToggleBtn = document.getElementById('musicToggleBtn');
+const bgMusic = document.getElementById('bgMusic');
+
+if (musicToggleBtn && bgMusic) {
+  musicToggleBtn.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play().then(() => {
+        musicToggleBtn.innerText = '⏸️'; 
+        musicToggleBtn.classList.add('playing');
+      }).catch(err => {
+        console.log("Хөгжим тоглуулахад алдаа гарлаа:", err);
+      });
+    } else {
+      bgMusic.pause();
+      musicToggleBtn.innerText = '🎵'; 
+      musicToggleBtn.classList.remove('playing');
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
 // Вэб нээгдэнгүүт зургуудыг бэлдэж слайдерт хуваарилна
 initializeSlider();
-// test 123 fix bug by adding comment
