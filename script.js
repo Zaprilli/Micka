@@ -24,7 +24,6 @@ function createPetal() {
 // 300 миллисекунд тутамд шинэ дэлбээ үүсгэнэ
 setInterval(createPetal, 300);
 
-
 // ⏰ 2. ЦАГИЙН ЗӨРҮҮ ХАРУУЛАХ (UB vs ТОКИО)
 function updateClocks() {
   const now = new Date();
@@ -39,7 +38,6 @@ function updateClocks() {
 }
 setInterval(updateClocks, 1000);
 updateClocks();
-
 
 // 🎌 3. ЯПОН ХЭЛНИЙ ҮГСИЙН САН
 const phrases = [
@@ -70,7 +68,6 @@ nextPhraseBtn.addEventListener('click', () => {
   }, 200);
 });
 
-
 // 😭 4. ИНТЕРФЕЙС ТОБЧЛУУРУУД
 const missBtn = document.getElementById('missBtn');
 const complimentBtn = document.getElementById('complimentBtn');
@@ -96,8 +93,6 @@ missBtn.addEventListener('click', () => {
 complimentBtn.addEventListener('click', () => {
   alert(compliments[Math.floor(Math.random() * compliments.length)]);
 });
-
-
 
 // ====== 1. ЧИНИЙ IMGUR РҮҮ ОРУУЛСАН ЗУРГУУДЫН САН ======
 // Энд байгаа жишээ линкүүдийг өөрийн Imgur-ийн Direct Link-үүдээр солиорой!
@@ -131,6 +126,86 @@ const sliderCounter = document.getElementById('sliderCounter');
 
 let currentIndex = 0;
 let totalPhotos = myImgurPhotos.length;
+
+const choosePhotosBtn = document.getElementById('choosePhotosBtn');
+const photoInput = document.getElementById('photoInput');
+const dynamicPhotoGrid = document.getElementById('dynamicPhotoGrid');
+
+if (choosePhotosBtn && photoInput && dynamicPhotoGrid) {
+  // 1. Том товчлуур дээр дарахад нууц файл сонгогчийг идэвхжүүлнэ
+  choosePhotosBtn.addEventListener('click', () => {
+    photoInput.click();
+  });
+
+  // 2. Хэрэглэгч зургуудаа сонгоод дуусах үед ажиллах хэсэг
+  photoInput.addEventListener('change', (event) => {
+    const files = event.target.files;
+    
+    // Сонгосон зураг бүрийг уншиж гоё жааз үүсгэнэ
+    Array.from(files).forEach((file, index) => {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        
+        reader.onload = (e) => {
+          // Поларойд элементийг бүтээх
+          const polaroidDiv = document.createElement('div');
+          polaroidDiv.className = 'dynamic-polaroid';
+          
+          // Жаазнуудыг яг жинхэнэ зураг шиг бага зэрэг зүүн, баруун тийш дураараа хазайлгана
+          const randomRotate = Math.floor(Math.random() * 8) - 4; // -4-өөс 4 градус
+          polaroidDiv.style.transform = `rotate(${randomRotate}deg)`;
+          
+          // Өнөөдрийн огноог автоматаар авна
+          const today = new Date().toISOString().slice(0, 10).replace(/-/g, '.');
+
+          polaroidDiv.innerHTML = `
+            <img src="${e.target.result}" alt="Memory">
+            <div class="caption">Дурсамж ✨<br><small style="color: #888; font-size: 0.8rem;">${today}</small></div>
+          `;
+          
+          // Хуудасны grid рүү шууд шиднэ
+          dynamicPhotoGrid.appendChild(polaroidDiv);
+        };
+        
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+}
+// 🔥 ЭНД ӨӨРИЙНХӨӨ ИМГҮР ВИДЕОНЫ ЛИНКҮҮДИЙГ СУУЛГАЖ ӨГӨӨРЭЙ!
+// Анхаарах зүйл: Төгсгөл нь заавал .mp4 байх ёстой шүү.
+const myVideos = [
+  "https://i.imgur.com/rg4D3dV.mp4",
+  "https://i.imgur.com/jGWfrXi.mp4",
+  "https://i.imgur.com/6UycQGL.mp4",
+  "https://i.imgur.com/sW5SvUK.mp4"
+];
+
+// Хуудас уншигдаж дуусмагц дээрх линкүүдийг альбом руу шууд шиднэ
+document.addEventListener('DOMContentLoaded', () => {
+  const albumVideoGrid = document.getElementById('albumVideoGrid');
+  
+  if (albumVideoGrid) {
+    myVideos.forEach((url, index) => {
+      // Санамсаргүй байдлаар видео бүрийг үл ялиг хазайлгах эффект (амьд харагдуулна)
+      const randomRotate = Math.floor(Math.random() * 8) - 4; // -4-өөс 4 градус
+      
+      const polaroidDiv = document.createElement('div');
+      polaroidDiv.className = 'dynamic-video-polaroid'; // Чиний CSS дээрх Поларойд жаазны класс
+      polaroidDiv.style.transform = `rotate(${randomRotate}deg)`;
+      polaroidDiv.style.margin = '15px';
+
+      polaroidDiv.innerHTML = `
+        <video src="${url}" controls loop preload="auto" style="width: 100%; height: 200px; object-fit: cover; border-radius: 2px; background: #000;"></video>
+        <div class="caption" style="text-align: center; font-family: 'Georgia', serif; font-size: 1.1rem; color: #333; margin-top: 15px;">
+          Memory Video #${index + 1} 🎬
+        </div>
+      `;
+      
+      albumVideoGrid.appendChild(polaroidDiv);
+    });
+  }
+});
 
 // Зургийн жаазны бодит өргөнийг динамикаар авна
 function getSlideWidth() {
@@ -201,7 +276,6 @@ closeAlbumBtn.addEventListener('click', () => {
   document.body.style.overflow = 'auto';
 });
 
-
 // Зургуудыг слайдер руу оруулах функц
 function initializeSlider() {
   if (!modalGallery) return;
@@ -239,7 +313,6 @@ function updateSlider() {
   }
 }
 
-
 const themeToggleBtn = document.getElementById('themeToggleBtn');
 
 // 🎨 5. СЭТГЭЛ САНАА ӨӨРЧЛӨХ (3 ГОРИМТОЙ СЛАЙД)
@@ -266,17 +339,8 @@ moodBtn.addEventListener('click', () => {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
+// Вэб нээгдэнгүүт зургуудыг бэлдэж слайдерт хуваарилна
+initializeSlider();
 
 const musicToggleBtn = document.getElementById('musicToggleBtn');
 const bgMusic = document.getElementById('bgMusic');
@@ -284,28 +348,17 @@ const bgMusic = document.getElementById('bgMusic');
 if (musicToggleBtn && bgMusic) {
   musicToggleBtn.addEventListener('click', () => {
     if (bgMusic.paused) {
-      bgMusic.play().then(() => {
-        musicToggleBtn.innerText = '⏸️'; 
-        musicToggleBtn.classList.add('playing');
-      }).catch(err => {
-        console.log("Хөгжим тоглуулахад алдаа гарлаа:", err);
-      });
+      bgMusic.play()
+        .then(() => {
+          musicToggleBtn.classList.add('playing'); // Лугших CSS классыг асаана
+        })
+        .catch(err => {
+          console.error("Хөтөч дууг хаасан байна:", err);
+          alert("Эхлээд дэлгэцийн хаана ч хамаагүй нэг дараад, дараа нь хөгжмөө асаана уу!");
+        });
     } else {
       bgMusic.pause();
-      musicToggleBtn.innerText = '🎵'; 
-      musicToggleBtn.classList.remove('playing');
+      musicToggleBtn.classList.remove('playing'); // Лугших классыг унтраана
     }
   });
 }
-
-
-
-
-
-
-
-
-
-
-// Вэб нээгдэнгүүт зургуудыг бэлдэж слайдерт хуваарилна
-initializeSlider();

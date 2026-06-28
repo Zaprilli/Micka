@@ -186,18 +186,37 @@ header h1 {
   border: 2px solid #ffccd5;
 }
 
-.japanese-text { font-size: 1.8rem; font-weight: bold; color: #d14d72; margin: 0; }
-.mongolian-text { font-size: 1.2rem; color: #666; margin: 15px 0 25px 0; }
+.japanese-text { 
+  font-size: 1.8rem; 
+  font-weight: bold; 
+  color: #d14d72; 
+  margin: 0; 
+}
+
+.mongolian-text { 
+  font-size: 1.2rem; 
+  color: #666; 
+  margin: 15px 0 25px 0; 
+}
 
 .next-phrase-btn {
   background: #ffccd5; color: #d14d72; border: none;
   padding: 10px 20px; border-radius: 50px; font-weight: bold;
   cursor: pointer; transition: 0.2s;
 }
-.next-phrase-btn:hover { background: #ffb3c6; color: white; }
+.next-phrase-btn:hover { 
+  background: #ffb3c6; 
+  color: white; 
+}
 
 /* Bucket list */
-ul.bucket-list { list-style: none; padding: 0; max-width: 550px; margin: 1.5rem auto; }
+ul.bucket-list { 
+  list-style: none; 
+  padding: 0;
+  max-width: 550px; 
+  margin: 1.5rem auto; 
+}
+
 ul.bucket-list li {
   background: white; padding: 15px 20px; border-radius: 12px;
   margin: 12px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.02);
@@ -205,7 +224,14 @@ ul.bucket-list li {
 }
 
 /* Товчлуур хавтас */
-.fun-buttons { margin: 4rem 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+.fun-buttons { 
+  margin: 4rem 0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 15px; 
+}
+
 .fun-btn {
   background: #ffe3e8; border: none; padding: 14px 28px;
   border-radius: 50px; font-size: 1rem; font-weight: 600;
@@ -213,13 +239,6 @@ ul.bucket-list li {
   box-shadow: 0 4px 15px rgba(209, 77, 114, 0.1);
 }
 .fun-btn:hover { background: #ff9ebb; color: white; transform: translateY(-3px); }
-
-
-
-
-
-
-
 
 /* Шөнийн горим (Неон Токио стиль) */
 body.dark-mode {
@@ -260,9 +279,6 @@ body.dark-mode footer { background: #0d1117; color: #888; border-top: 1px solid 
 .close-modal:hover { color: #d14d72; }
 .modal-title { text-align: center; font-size: 2rem; color: #d14d72; margin-bottom: 0; }
 .slider-outer-container { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 700px; margin: 1.5rem 0; position: relative; }
-
-
-
 
 /* ===================================================
    1. TOKYO NIGHT MODE (ШӨНИЙН ГОРИМ)
@@ -477,21 +493,6 @@ body.dark-mode .nav-btn:hover { background: #ff0055; color: white; }
 body.dark-mode .slider-counter { background: #161925; color: #00f0ff; border-color: #00f0ff; }
 body.dark-mode .modal-title { color: #00f0ff; text-shadow: 0 0 12px #00f0ff; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ====== 1. ТОВЧИЙГ ХУУДАСНЫ ТӨВД БАЙРЛУУЛАХ ====== */
 .premium-btn-container {
   width: 100%;
@@ -562,20 +563,6 @@ body.autumn-mode .premium-frame-btn:hover {
     width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ====== 🎵 ХӨВӨГЧ ХӨГЖМИЙН ҮНДСЭН ЗАГВАР ====== */
 .floating-music-btn {

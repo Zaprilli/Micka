@@ -17,7 +17,7 @@
 
   <button id="musicToggleBtn" class="floating-music-btn" title="Play Background Music">🎵</button>
 
-<audio id="bgMusic" src="https://assets.mixkit.co/music/preview/mixkit-sakura-348.mp3" loop></audio>
+  <audio id="bgMusic" src="./docs/sakura-bgm.mp3" loop></audio>
 
   <header>
     <div class="passport-stamp">PASSPORT CONTROL: APPROVED ✈️</div>
@@ -70,25 +70,19 @@
 
   <section class="album-section">
     <h2 class="section-title">🌌 Our Dynamic Album</h2>
-    <p class="sub-notice" style="text-align:center; color:#666; margin-top:-10px;">Энд баахан зургуудаа зэрэг сонгоод оруулаарай!</p>
-    
-    <div class="upload-container">
-      <div class="upload-btn-wrapper">
-        <button class="btn-upload">➕ Choose Photos</button>
-        <input type="file" id="photoUpload" accept="image/*" multiple>
-      </div>
-      <br><br>
-      <p class="gpa-notice">💡Refresh хийхэд устдагийг анхаараарай! (Messenger GPA 4.0 🎓- той хуваалцаарай)</p>
-    </div>
-
-    <div id="newPhotos" class="gallery"></div>
-  </section>
-
   <div class="premium-btn-container">
     <button id="openAlbumBtn" class="premium-frame-btn">
-      📖 Open Premium Album Frame 🌸
+      📖 Open Album Frame 🌸
     </button>
   </div>
+
+  <div class="album-video-section" style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px dashed rgba(255,117,140,0.3);">
+  
+  <h3 style="font-family: 'Georgia', serif; color: #ff758c;">🎥 Memory Videos!</h3>
+
+  <div id="albumVideoGrid" class="dynamic-photo-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 25px;"></div>
+  
+</div>
 
 <div id="albumModal" class="modal">
     <div class="modal-content-wrapper">
