@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #fffafc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  transition: background 1s ease;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #ffd5ec 0%, #c3f0ff 100%);
+  border-bottom: 3px dashed #ffe6f2;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+header h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #444;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.sub-notice {
+  text-align: center;
+  color: #666;
+  margin-top: -10px;
+}
+
+/* Polaroid Gallery Style */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.photo {
+  position: relative;
+  background: white;
+  padding: 12px 12px 25px 12px;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #f0f0f0;
+  max-width: 260px;
+}
+
+/* Random rotations for authentic polaroid look */
+.gallery .photo:nth-child(odd) { transform: rotate(-3deg); }
+.gallery .photo:nth-child(even) { transform: rotate(2deg); }
+.gallery .photo:nth-child(3n) { transform: rotate(-1.5deg); }
+
+.photo:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+.photo-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #eee;
+}
+
+.photo img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.caption {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 15px;
+  color: #444;
+}
+
+.date-text {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.hover-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.photo:hover .hover-text {
+  opacity: 1;
+}
+
+/* Bucket List */
+ul.bucket-list {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+  margin: 1.5rem auto;
+}
+
+ul.bucket-list li {
+  background: #f9f3ff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin: 10px 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.02);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  border-left: 4px solid #d6b4fc;
+}
+
+/* Album Uploader Section */
+.upload-container {
+  background: #fdf3f9;
+  border: 2px dashed #ffd1eb;
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-upload {
+  border: 2px solid #ffb3e1;
+  color: #db5ca1;
+  background-color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.upload-btn-wrapper:hover .btn-upload {
+  background: #ffb3e1;
+  color: white;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.gpa-notice {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 12px;
+  font-style: italic;
+}
+
+.album-section {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2rem 0;
+  border-top: 1px solid #f0e2ea;
+}
+
+/* Action Buttons */
+.fun-buttons {
+  margin: 3rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.fun-btn {
+  background: #ffd9f9;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  color: #551b47;
+}
+
+.fun-btn:hover {
+  background: #ffeefc;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fff1f9;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #777;
+  border-top: 1px solid #ffe6f2;
+}
